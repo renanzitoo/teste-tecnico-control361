@@ -14,7 +14,7 @@ describe('CustomTable', () => {
       fleet: 'Frota 1',
       type: 'vehicle',
       model: 'Modelo X',
-      status: 'Ativo',
+      status: 'outro',
       lat: -23.5,
       lng: -46.6,
       id: '',
@@ -28,7 +28,7 @@ describe('CustomTable', () => {
       fleet: 'Frota 2',
       type: 'implement',
       model: 'Modelo Y',
-      status: 'Parado',
+      status: 'active',
       lat: -23.6,
       lng: -46.7,
       id: '',
@@ -45,8 +45,8 @@ describe('CustomTable', () => {
     expect(screen.getByText('ABC1234')).toBeInTheDocument();
     expect(screen.getByText('Frota 1')).toBeInTheDocument();
     expect(screen.getByText('Motor')).toBeInTheDocument();
-    expect(screen.getByText('Modelo X')).toBeInTheDocument();
-    expect(screen.getByText('Ativo')).toBeInTheDocument();
+    expect(screen.getByText('Modelo Y')).toBeInTheDocument(); 
+    expect(screen.getByText('A caminho')).toBeInTheDocument();
 
     expect(screen.getByText('XYZ5678')).toBeInTheDocument();
     expect(screen.getByText('Implemento')).toBeInTheDocument();
