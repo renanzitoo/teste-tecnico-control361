@@ -78,7 +78,8 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
                   ? "Implemento"
                   : "Outro"}
               </TableCell>
-              <TableCell sx={{ color: "white", borderRight: borderStyle }}>{car.model}</TableCell>
+              <TableCell sx={{ color: "white", borderRight: borderStyle }}>
+                {car.model === "active" ? "A caminho" : "Desconhecido"}</TableCell>
               <TableCell sx={{ color: "white" }}>{car.status}</TableCell>
             </TableRow>
           ))}
