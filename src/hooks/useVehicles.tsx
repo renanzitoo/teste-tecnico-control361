@@ -74,7 +74,7 @@ export const useVehicles = (
       ) {
         setPage((prev) => prev + 20);
       }
-    }, 200); // Aguarda 200ms antes de processar o scroll
+    }, 200);
   };
 
   useEffect(() => {

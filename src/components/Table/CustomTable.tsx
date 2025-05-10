@@ -21,7 +21,7 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
   const borderStyle = "1px solid #003344";
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // true se for tela pequena
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
 
   return (
     <TableContainer
@@ -29,7 +29,7 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
       sx={{
         backgroundColor: "#001623",
         borderRadius: "12px",
-        overflowX: "auto", // importante para scroll horizontal
+        overflowX: "auto", 
         boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.2)",
       }}
     >
@@ -39,7 +39,7 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
           borderCollapse: "separate",
           borderSpacing: 0,
         }}
-        size={isMobile ? "small" : "medium"} // fonte menor em mobile
+        size={isMobile ? "small" : "medium"} 
       >
         <TableHead>
           <TableRow sx={{ backgroundColor: "#001622" }}>
@@ -51,7 +51,7 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
                   fontWeight: "bold",
                   borderRight: index < 4 ? borderStyle : "none",
                   borderBottom: borderStyle,
-                  whiteSpace: "nowrap", // evita quebra de texto
+                  whiteSpace: "nowrap",
                   px: isMobile ? 1 : 2,
                   py: isMobile ? 0.5 : 1,
                 }}
