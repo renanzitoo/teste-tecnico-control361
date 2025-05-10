@@ -18,11 +18,13 @@ export default function TopBar({
   searchTerm: string;
   setSearchTerm: (value: string) => void;
 }) {
-  const [selectedValue] = useState<VehicleType>("tracked");
+  const [selectedValue, setSelectedValue] = useState<VehicleType>("tracked");
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value as VehicleType;
     onRadioChange(newValue);
+    setSelectedValue(newValue);
+    setSearchTerm(""); 
   };
 
   return (
