@@ -5,7 +5,9 @@ import {
   TableCell,
   TableRow,
   TableBody,
-  Paper
+  Paper,
+  useTheme,
+  useMediaQuery
 } from "@mui/material";
 import { CombinedVehicle } from "../../types/CombinedVehicle";
 
@@ -16,8 +18,10 @@ interface CustomTableProps {
 
 export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps) => {
   const Cars = locationVehicles;
-
   const borderStyle = "1px solid #003344";
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // true se for tela pequena
 
   return (
     <TableContainer
@@ -25,11 +29,18 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
       sx={{
         backgroundColor: "#001623",
         borderRadius: "12px",
-        overflow: "hidden",
+        overflowX: "auto", // importante para scroll horizontal
         boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.2)",
       }}
     >
-      <Table sx={{ borderCollapse: "separate", borderSpacing: 0 }}>
+      <Table
+        sx={{
+          minWidth: 650,
+          borderCollapse: "separate",
+          borderSpacing: 0,
+        }}
+        size={isMobile ? "small" : "medium"} // fonte menor em mobile
+      >
         <TableHead>
           <TableRow sx={{ backgroundColor: "#001622" }}>
             {["Placa", "Frota", "Tipo", "Modelo", "Status"].map((header, index) => (
@@ -38,8 +49,11 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
                 sx={{
                   color: "white",
                   fontWeight: "bold",
-                  borderRight: index < 4 ? borderStyle : "none",  
+                  borderRight: index < 4 ? borderStyle : "none",
                   borderBottom: borderStyle,
+                  whiteSpace: "nowrap", // evita quebra de texto
+                  px: isMobile ? 1 : 2,
+                  py: isMobile ? 0.5 : 1,
                 }}
               >
                 {header}
@@ -57,30 +71,33 @@ export const CustomTable = ({ locationVehicles, onPlateClick }: CustomTableProps
               }}
             >
               <TableCell
-                sx={{ color: "#00AEEF", cursor: "pointer", borderRight: borderStyle }}
+                sx={{
+                  color: "#00AEEF",
+                  cursor: "pointer",
+                  borderRight: borderStyle,
+                  px: isMobile ? 1 : 2,
+                }}
                 onClick={() => {
                   if (car.lat && car.lng) {
                     onPlateClick(car.lat, car.lng);
-                    window.scrollTo({
-                      top: 100,
-                      behavior: 'smooth', 
-                    });
+                    window.scrollTo({ top: 100, behavior: "smooth" });
                   }
                 }}
               >
                 {car.plate}
               </TableCell>
-              <TableCell sx={{ color: "white", borderRight: borderStyle }}>{car.fleet}</TableCell>
-              <TableCell sx={{ color: "white", borderRight: borderStyle }}>
-                {car.type === "vehicle"
-                  ? "Motor"
-                  : car.type === "implement"
-                  ? "Implemento"
-                  : "Outro"}
+              <TableCell sx={{ color: "white", borderRight: borderStyle, px: isMobile ? 1 : 2 }}>
+                {car.fleet}
               </TableCell>
-              <TableCell sx={{ color: "white", borderRight: borderStyle }}>
-                {car.model}</TableCell>
-              <TableCell sx={{ color: "white" }}>{car.status=== "active" ? "A caminho" : "Desconhecido"}</TableCell>
+              <TableCell sx={{ color: "white", borderRight: borderStyle, px: isMobile ? 1 : 2 }}>
+                {car.type === "vehicle" ? "Motor" : car.type === "implement" ? "Implemento" : "Outro"}
+              </TableCell>
+              <TableCell sx={{ color: "white", borderRight: borderStyle, px: isMobile ? 1 : 2 }}>
+                {car.model}
+              </TableCell>
+              <TableCell sx={{ color: "white", px: isMobile ? 1 : 2 }}>
+                {car.status === "active" ? "A caminho" : "Desconhecido"}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

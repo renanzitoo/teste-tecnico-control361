@@ -11,6 +11,8 @@ interface CombinedVehicle extends Vehicle {
 
 type VehicleType = "tracked" | "others";
 
+let scrollTimeout: NodeJS.Timeout;
+
 export const useVehicles = (
   vehicleType: VehicleType,
   searchTerm: string,
@@ -25,11 +27,8 @@ export const useVehicles = (
     setLoading(true);
     try {
       const newVehicles = await fetchVehicles(page, vehicleType, apiKey);
-      setVehicles((prev) => {
-        const existingPlates = new Set(prev.map((v) => v.plate));
-        const unique = newVehicles.filter((v) => !existingPlates.has(v.plate));
-        return [...prev, ...unique];
-      });
+      setVehicles(newVehicles);
+
     } catch (err) {
       console.error("Erro ao carregar veículos:", err);
     } finally {
@@ -66,19 +65,23 @@ export const useVehicles = (
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = () => {
-    if (
-      searchTerm === "" &&
-      page <= 60 &&
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
-    ) {
-      setPage((prev) => prev + 20);
-    }
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (
+        searchTerm === "" &&
+        page <= 80 &&
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 300
+      ) {
+        setPage((prev) => prev + 20);
+      }
+    }, 200); // Aguarda 200ms antes de processar o scroll
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+  
 
   return {
     vehicles: filtered,
