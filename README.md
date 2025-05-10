@@ -2,7 +2,7 @@
 
 Aplicativo web desenvolvido como parte de um teste técnico para uma empresa, com o objetivo de rastrear em tempo real os veículos de entrega. O sistema exibe a localização atual dos veículos em um mapa interativo, utilizando a API do Google Maps e a API fornecida pela empresa.
 
-![Mapa com Rastreamento]('./demo.png')
+![Mapa com Rastreamento]('demo.png')
 
 ## 🛠️ Tecnologias Utilizadas
 
