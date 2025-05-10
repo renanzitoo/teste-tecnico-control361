@@ -2,7 +2,7 @@
 
 Aplicativo web desenvolvido como parte de um teste técnico para uma empresa, com o objetivo de rastrear em tempo real os veículos de entrega. O sistema exibe a localização atual dos veículos em um mapa interativo, utilizando a API do Google Maps e a API fornecida pela empresa.
 
-![Mapa com Rastreamento]('demo.png')
+![Mapa com Rastreamento](https://via.placeholder.com/800x400.png?text=Exemplo+de+Mapa+com+Rastreamento)
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -12,6 +12,10 @@ Aplicativo web desenvolvido como parte de um teste técnico para uma empresa, co
 - **Material UI** – Componentes prontos e acessíveis para uma UI moderna
 - **Google Maps API** – Exibição de mapas e localização dos veículos
 - **API da empresa** – Fornece os dados de localização e status dos veículos
+
+## 🎥 Demonstração
+
+[![Veja o vídeo da aplicação](https://img.youtube.com/vi/jeuynAjsg64/hqdefault.jpg)](https://youtu.be/jeuynAjsg64)
 
 ## 📸 Funcionalidades
 
@@ -24,8 +28,8 @@ Aplicativo web desenvolvido como parte de um teste técnico para uma empresa, co
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/delivery-tracker.git
-   cd delivery-tracker
+   git clone https://github.com/renanzitoo/teste-tecnico-control361.git
+   cd teste-tecnico-control361.git
    ```
 
 2. Instale as dependências:
@@ -73,5 +77,5 @@ src/
 Caso tenha interesse em discutir este projeto ou queira me conhecer melhor:
 
 **Renanzitoo**  
-📧 renan.costa2098@gmail.com
-🔗 [linkedin.com/in/renanzitoo](https://linkedin.com/in/renanzitoo)
+📧 seuemail@email.com  
+🔗 [linkedin.com/in/seu-perfil](https://linkedin.com/in/seu-perfil)
