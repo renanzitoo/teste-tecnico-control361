@@ -1,8 +1,8 @@
-# 🚚 Delivery Tracker App
+# 🚚 Teste técnico full-stack Control361
 
 Aplicativo web desenvolvido como parte de um teste técnico para uma empresa, com o objetivo de rastrear em tempo real os veículos de entrega. O sistema exibe a localização atual dos veículos em um mapa interativo, utilizando a API do Google Maps e a API fornecida pela empresa.
 
-![Mapa com Rastreamento](https://via.placeholder.com/800x400.png?text=Exemplo+de+Mapa+com+Rastreamento)
+[Link da aplicação](https://teste-tecnico-control361.vercel.app/)
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -77,5 +77,5 @@ src/
 Caso tenha interesse em discutir este projeto ou queira me conhecer melhor:
 
 **Renanzitoo**  
-📧 seuemail@email.com  
-🔗 [linkedin.com/in/seu-perfil](https://linkedin.com/in/seu-perfil)
+📧 renan.costa2098@gmail.com
+🔗 [linkedin.com/in/renanzitoo](https://linkedin.com/in/renanzitoo)
